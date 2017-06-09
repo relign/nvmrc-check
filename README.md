@@ -1,4 +1,4 @@
-# .nvmrc Check
+# nvmrc-check
 
 1) Add [.nvmrc](https://github.com/creationix/nvm#nvmrc) file to project root with version number:
 ```
