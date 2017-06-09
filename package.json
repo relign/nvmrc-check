@@ -1,0 +1,23 @@
+{
+  "name": "nvmrc-check",
+  "version": "1.0",
+  "description": "Check if nvmrc version matches node version.",
+  "bin": "./bin.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skylerfenn/nvmrc-check.git"
+  },
+  "keywords": [
+    "version",
+    "node",
+    "nvmrc"
+  ],
+  "author": "Skyler Fenn",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/skylerfenn/nvmrc-check/issues"
+  },
+  "dependencies": {
+    "semver": "^5.3.0"
+  }
+}
