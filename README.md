@@ -2,7 +2,7 @@
 
 1) Add [.nvmrc](https://github.com/creationix/nvm#nvmrc) file to project root with version number:
 ```
-  8.0
+8.0
 ```
 
 2) Add to package.json as script
