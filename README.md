@@ -14,7 +14,7 @@ scripts {
 
 3) If current node version doesn't match, script fails.
 
-Note: Automatically switch node version based on `.nvmrc`. Add to your `.bash_profile` (adapted from Unix & Linux Stack Exchange [thread](https://unix.stackexchange.com/questions/21363/execute-bash-scripts-on-entering-a-directory/21364#21364)):
+Note: Automatically switch node version based on `.nvmrc` with your `.bash_profile` (adapted from Unix & Linux Stack Exchange [thread](https://unix.stackexchange.com/questions/21363/execute-bash-scripts-on-entering-a-directory/21364#21364)):
 
 ```
 cd () { builtin cd "$@" && chpwd; }
