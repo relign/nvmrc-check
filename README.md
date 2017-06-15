@@ -14,7 +14,7 @@ scripts {
 
 3) If current node version doesn't match, script fails.
 
-Note: Use [nvm trick](https://github.com/creationix/nvm#zsh) with [zsh](https://github.com/robbyrussell/oh-my-zsh/wiki/Installing-ZSH) to call `nvm use` automatically whenever you enter a directory that contains an `.nvmrc` file. Or add to your `.bash_profile` (adapted from Unix & Linux Stack Exchange [thread](https://unix.stackexchange.com/questions/21363/execute-bash-scripts-on-entering-a-directory/21364#21364)):
+Note: Automatically switch node version based on `.nvmrc`. Add to your `.bash_profile` (adapted from Unix & Linux Stack Exchange [thread](https://unix.stackexchange.com/questions/21363/execute-bash-scripts-on-entering-a-directory/21364#21364)):
 
 ```
 cd () { builtin cd "$@" && chpwd; }
