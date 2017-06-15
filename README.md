@@ -22,11 +22,15 @@ pushd () { builtin pushd "$@" && chpwd; }
 popd () { builtin popd "$@" && chpwd; }
 chpwd () {
 
-FILE=$PWD/.nvmrc
+CURFILE=$PWD/.nvmrc
+OLDFILE=$OLDPWD/.nvmrc
 
-if [ -f $FILE ];
+if [ -f $CURFILE ];
 then
    nvm install $(cat .nvmrc)
+elif [ -f $OLDFILE ]
+then
+   nvm use stable
 fi
 }
 ```
