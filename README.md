@@ -14,4 +14,19 @@ scripts {
 
 3) If current node version doesn't match, script fails.
 
-Note: Use [nvm trick](https://github.com/creationix/nvm#zsh) with [zsh](https://github.com/robbyrussell/oh-my-zsh/wiki/Installing-ZSH) to call nvm use automatically whenever you enter a directory that contains an .nvmrc file. 
+Note: Use [nvm trick](https://github.com/creationix/nvm#zsh) with [zsh](https://github.com/robbyrussell/oh-my-zsh/wiki/Installing-ZSH) to call `nvm use` automatically whenever you enter a directory that contains an `.nvmrc` file. Or add to your `.bash_profile` (adapted from [unix stackexchange](https://unix.stackexchange.com/questions/21363/execute-bash-scripts-on-entering-a-directory/21364#21364) thread):
+
+```
+cd () { builtin cd "$@" && chpwd; }
+pushd () { builtin pushd "$@" && chpwd; }
+popd () { builtin popd "$@" && chpwd; }
+chpwd () {
+
+FILE=$PWD/.nvmrc
+
+if [ -f $FILE ];
+then
+   nvm install $(cat .nvmrc)
+fi
+}
+```
