@@ -14,7 +14,7 @@ scripts {
 
 3) If current node version doesn't match, script fails.
 
-Note: Automatically switch node version based on `.nvmrc` with your `.bash_profile` (adapted from [Node Version Manager README](https://github.com/creationix/nvm#nvmrc)):
+Note: Automatically switch node version based on `.nvmrc` with your `.bash_profile` (adapted from [Node Version Manager README](https://github.com/creationix/nvm#calling-nvm-use-automatically-in-a-directory-with-a-nvmrc-file)):
 
 ```
 cd () { builtin cd "$@" && chpwd; }
