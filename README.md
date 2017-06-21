@@ -14,7 +14,7 @@ scripts {
 
 3) If current node version doesn't match, script fails.
 
-Note: Automatically switch node version based on `.nvmrc` with your `.bash_profile` (adapted from Unix & Linux Stack Exchange [thread](https://unix.stackexchange.com/questions/21363/execute-bash-scripts-on-entering-a-directory/21364#21364)):
+Note: Automatically switch node version based on `.nvmrc` with your `.bash_profile` (adapted from [Node Version Manager README](https://github.com/creationix/nvm#nvmrc)):
 
 ```
 cd () { builtin cd "$@" && chpwd; }
@@ -22,15 +22,19 @@ pushd () { builtin pushd "$@" && chpwd; }
 popd () { builtin popd "$@" && chpwd; }
 chpwd () {
 
-CURFILE=$PWD/.nvmrc
-OLDFILE=$OLDPWD/.nvmrc
+NODE_VERSION="$(nvm version)"
+NVMRC_PATH="$(nvm_find_nvmrc)"
 
-if [ -f $CURFILE ];
-then
-   nvm install $(cat .nvmrc)
-elif [ -f $OLDFILE ]
-then
-   nvm use stable
+if [ -f "$NVMRC_PATH" ]; then
+  NVMRC_NODE_VERSION="$(cat "$NVMRC_PATH")"
+  if [ "$NVMRC_NODE_VERSION" = "N/A" ]; then
+    nvm install
+  elif [ "$NVMRC_NODE_VERSION" != "$NODE_VERSION" ]; then
+    nvm use 
+  fi  
+elif [ "$NODE_VERSION" != $(nvm version default) ]; then
+   echo "Reverting to nvm default version"
+   nvm use default
 fi
 }
 ```
